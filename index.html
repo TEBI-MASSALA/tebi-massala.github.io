@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Politique de sécurité du contenu : tout est servi depuis le site lui-même.
+       Sur GitHub Pages, les en-têtes HTTP ne sont pas configurables ; cette balise
+       apporte une protection équivalente côté navigateur pour l'essentiel. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'">
+  <title>Son Cliter Tebi Massala — Cryptologie et apprentissage profond</title>
+  <meta name="description" content="Doctorant en cryptologie. Cryptographie symétrique et intelligence artificielle : génération de fonctions booléennes cryptographiquement fortes par apprentissage profond.">
+  <meta name="author" content="Son Cliter Tebi Massala">
+
+  <!-- Données structurées (référencement) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Son Cliter Tebi Massala — Cryptologie et IA">
+  <meta property="og:description" content="Portfolio scientifique : cryptographie symétrique et apprentissage profond.">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ===================== EN-TÊTE / NAVIGATION ===================== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="nav-brand" href="#accueil">Tebi&nbsp;Massala<span>.</span></a>
+      <nav aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">≡</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#recherche">Recherche</a></li>
+          <li><a href="#publications">Travaux</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ===================== ACCUEIL ===================== -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-intro">
+          <h1>Son Cliter Tebi Massala</h1>
+          <p class="hero-role">Doctorant en cryptologie — Cryptographie symétrique et intelligence artificielle</p>
+          <p class="hero-lead">
+            Je conçois et j'analyse des primitives cryptographiques. Mes travaux portent sur la
+            génération de fonctions booléennes cryptographiquement fortes à l'aide de l'apprentissage
+            profond, à la frontière de la cryptanalyse symétrique et de l'intelligence artificielle.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn--accent" href="#recherche">Découvrir ma recherche</a>
+            <a class="btn btn--ghost-light" href="#documents">Documents</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Repères">
+          <h2>Repères</h2>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="num">AES</div><div class="lbl">Midori, Scream — primitives légères</div></div>
+            <div class="hero-stat"><div class="num">APN</div><div class="lbl">Fonctions booléennes vectorielles</div></div>
+            <div class="hero-stat"><div class="num">GAN</div><div class="lbl">VAE, Transformers — génération</div></div>
+            <div class="hero-stat"><div class="num">LAGA</div><div class="lbl">Équipe AGC3</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== À PROPOS ===================== -->
+    <section class="section" id="a-propos">
+      <div class="container">
+        <div class="about-grid">
+          <figure class="portrait">
+            <!-- Déposez votre photo dans public/img/portrait.jpg : elle s'affichera ici.
+                 Tant qu'elle est absente, le monogramme d'arrière-plan reste visible. -->
+            <img src="/img/portrait.jpg" alt="Portrait de Son Cliter Tebi Massala" width="480" height="600">
+          </figure>
+          <div class="about-text">
+            <p class="section-eyebrow">À propos</p>
+            <h2>Chercheur en cryptologie, à la croisée des mathématiques et de l'IA</h2>
+            <p>
+              Titulaire d'un Master 2 en Arithmétique, Codage et Cryptologie de l'Université Paris 8,
+              je poursuis une thèse consacrée à la cryptographie symétrique assistée par apprentissage
+              profond. Je m'intéresse à la conception de fonctions et de boîtes de substitution résistantes
+              aux attaques linéaires et différentielles, ainsi qu'à l'analyse de structures algébriques
+              au sein des chiffrements par blocs.
+            </p>
+            <p>
+              Mon travail combine une base mathématique rigoureuse (fonctions booléennes vectorielles,
+              non-linéarité, uniformité différentielle, APN-ness) et des méthodes numériques modernes
+              (modèles génératifs profonds) pour explorer de nouveaux espaces de primitives.
+            </p>
+            <div class="about-meta">
+              <div class="item"><div class="k">Domaine</div><div class="v">Cryptographie symétrique</div></div>
+              <div class="item"><div class="k">Rattachement</div><div class="v">Laboratoire LAGA — équipe AGC3</div></div>
+              <div class="item"><div class="k">Établissement</div><div class="v">Sorbonne Paris Nord / Paris 8</div></div>
+              <div class="item"><div class="k">Langues</div><div class="v">Français, anglais</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PARCOURS & FORMATION ===================== -->
+    <section class="section section--alt" id="parcours">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Itinéraire</p>
+          <h2 class="section-title">Parcours et formation</h2>
+          <p class="section-lead">Une progression continue des mathématiques fondamentales vers la recherche en cryptologie appliquée.</p>
+        </div>
+        <div class="timeline">
+          <article class="tl-item">
+            <p class="tl-period">Depuis sept. 2024</p>
+            <h3>Master 2 — Arithmétique, Codage et Cryptographie</h3>
+            <p class="tl-place">Université Paris 8 Vincennes — Saint-Denis</p>
+            <ul>
+              <li>Cryptographie symétrique et codes correcteurs</li>
+              <li>Cryptographie post-quantique à base de codes</li>
+              <li>Interactions code–cryptographie, arithmétique algorithmique (LLL, élimination de Gauss)</li>
+            </ul>
+          </article>
+          <article class="tl-item">
+            <p class="tl-period">2023 — 2024</p>
+            <h3>Master 1 — Arithmétique, Codage et Cryptographie</h3>
+            <p class="tl-place">Université Paris 8 Vincennes — Saint-Denis</p>
+            <ul>
+              <li>Cryptographie asymétrique, symétrique et signatures</li>
+              <li>Cryptographie post-quantique à base de réseaux euclidiens</li>
+              <li>Théorie de l'information, traitement du signal, programmation orientée objet</li>
+            </ul>
+          </article>
+          <article class="tl-item">
+            <p class="tl-period">2019 — 2022</p>
+            <h3>Licence de mathématiques (parcours mathématiques–informatique)</h3>
+            <p class="tl-place">USTM — Franceville, Gabon</p>
+            <ul>
+              <li>Analyse, algèbre, arithmétique et théorie des nombres</li>
+              <li>Mesure, intégration, topologie, probabilités et statistiques</li>
+              <li>Programmation orientée objet en C++, systèmes Linux</li>
+            </ul>
+          </article>
+          <article class="tl-item">
+            <p class="tl-period">Fév. — Août 2025</p>
+            <h3>Recherche — primitives cryptographiques légères</h3>
+            <p class="tl-place">Laboratoire LAGA, équipe AGC3 — Saint-Denis</p>
+            <ul>
+              <li>Étude des primitives légères pour l'IoT et de leurs propriétés algébriques</li>
+              <li>Algorithme de détection des structures commutatives (APN-ness)</li>
+              <li>Attaques algébriques et commutatives sur AES, Midori et Scream</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMPÉTENCES ===================== -->
+    <section class="section" id="competences">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Expertise</p>
+          <h2 class="section-title">Compétences</h2>
+          <p class="section-lead">Un socle mathématique appliqué à la cryptographie, aux codes correcteurs et à la sécurité des systèmes.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3><span class="idx">01</span> Cryptographie symétrique</h3>
+            <ul class="tag-list">
+              <li>AES (SubBytes, ShiftRows, MixColumns, AddRoundKey)</li>
+              <li>Midori</li><li>Scream</li><li>Primitives légères IoT</li>
+              <li>Fonctions booléennes vectorielles</li><li>APN-ness</li>
+              <li>Forme algébrique normale (ANF)</li><li>Non-linéarité</li>
+              <li>Transformée de Walsh</li><li>Degré algébrique</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3><span class="idx">02</span> Cryptographie asymétrique</h3>
+            <ul class="tag-list">
+              <li>RSA</li><li>ElGamal</li><li>Diffie–Hellman</li>
+              <li>Réseaux euclidiens (NTRU, LWE)</li>
+              <li>Signatures RSA, DSA, ECDSA</li><li>Chiffrement de Rabin</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3><span class="idx">03</span> Codes et interactions code–crypto</h3>
+            <ul class="tag-list">
+              <li>BCH</li><li>Reed–Solomon</li><li>Codes de Goppa</li>
+              <li>McEliece</li><li>Niederreiter</li>
+              <li>Post-quantique : CFS, WAVE, LESS</li>
+              <li>Partage de secret</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3><span class="idx">04</span> Apprentissage profond</h3>
+            <ul class="tag-list">
+              <li>GAN / WGAN-GP</li><li>VAE</li><li>Transformers</li>
+              <li>Jeux de données de S-boxes</li>
+              <li>Apprentissage de critères cryptographiques</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3><span class="idx">05</span> Cybersécurité et réseaux</h3>
+            <ul class="tag-list">
+              <li>TLS 1.3</li><li>HTTPS</li><li>TCP/IP</li><li>DHCP</li>
+              <li>Audit TLS (Wireshark, OpenSSL)</li><li>Gestion de certificats</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3><span class="idx">06</span> Développement et outils</h3>
+            <ul class="tag-list">
+              <li>Python</li><li>SageMath</li><li>C++</li>
+              <li>OpenSSL</li><li>LaTeX</li><li>Linux / Kali</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RECHERCHE & THÈSE ===================== -->
+    <section class="section section--alt" id="recherche">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Recherche doctorale</p>
+          <h2 class="section-title">Recherche et thèse</h2>
+          <p class="section-lead">Concevoir, par l'apprentissage profond, des primitives symétriques satisfaisant des critères cryptographiques exigeants.</p>
+        </div>
+        <div class="research">
+          <article class="research-main">
+            <h3>Génération de fonctions booléennes cryptographiquement fortes par apprentissage profond</h3>
+            <p class="research-abstract">
+              La sécurité des chiffrements symétriques repose en grande partie sur des fonctions
+              booléennes vectorielles — au cœur des boîtes de substitution (S-boxes). Leur résistance
+              aux cryptanalyses linéaire et différentielle se mesure par des critères précis :
+              non-linéarité élevée, faible uniformité différentielle (idéalement APN, <em>Almost Perfect
+              Nonlinear</em>), degré algébrique adéquat et forme algébrique normale maîtrisée. Construire
+              des fonctions optimisant simultanément ces critères constitue un problème combinatoire
+              difficile.
+            </p>
+            <p class="research-abstract">
+              Cette thèse explore l'usage de modèles génératifs profonds (GAN et WGAN-GP, auto-encodeurs
+              variationnels, Transformers) pour apprendre la structure des fonctions performantes et en
+              générer de nouvelles candidates, puis valider rigoureusement leurs propriétés par les outils
+              classiques de la cryptographie symétrique.
+            </p>
+            <ol class="axes">
+              <li><span class="ax-num">1</span><span>Modélisation des critères cryptographiques (non-linéarité, uniformité différentielle, APN-ness, degré algébrique, ANF) comme objectifs d'apprentissage mesurables.</span></li>
+              <li><span class="ax-num">2</span><span>Conception d'architectures génératives (GAN/WGAN-GP, VAE, Transformers) produisant des fonctions et S-boxes candidates.</span></li>
+              <li><span class="ax-num">3</span><span>Détection de structures commutatives et évaluation d'attaques algébriques sur AES, Midori et Scream.</span></li>
+              <li><span class="ax-num">4</span><span>Validation expérimentale par la transformée de Walsh, le spectre différentiel et les tables de distribution (DDT).</span></li>
+            </ol>
+          </article>
+          <aside class="research-aside">
+            <div class="aside-card">
+              <h4>Cadre de la thèse</h4>
+              <div class="k">Laboratoire</div><div class="v">LAGA — équipe AGC3</div>
+              <div class="k">Direction</div><div class="v">Pr. Sihem Mesnager</div>
+              <div class="k">Établissement</div><div class="v">Université Sorbonne Paris Nord / Paris 8</div>
+              <div class="k">Domaines</div><div class="v">Cryptographie symétrique, apprentissage profond</div>
+            </div>
+            <div class="aside-card aside-card--light">
+              <h4>Documents liés</h4>
+              <p>Un résumé de la thèse et des supports de présentation peuvent être consultés dans la section dédiée.</p>
+              <a class="btn btn--ghost" href="#documents">Accéder aux documents</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRAVAUX & COMMUNICATIONS ===================== -->
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Production</p>
+          <h2 class="section-title">Travaux et communications</h2>
+          <p class="section-lead">Projets de recherche, implémentations et présentations. Les supports correspondants sont disponibles dans la section Documents.</p>
+        </div>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <span class="pub-year">2025</span>
+            <div>
+              <h3>Cryptanalyse commutative et intelligence artificielle</h3>
+              <p>Présentation des structures commutatives dans les chiffrements symétriques et de l'apport des modèles génératifs.</p>
+            </div>
+          </li>
+          <li class="pub-item">
+            <span class="pub-year">2025</span>
+            <div>
+              <h3>Détection de structures commutatives (APN-ness) sur AES, Midori et Scream</h3>
+              <p>Travail de recherche au laboratoire LAGA : algorithme de détection et évaluation d'attaques algébriques et commutatives.</p>
+            </div>
+          </li>
+          <li class="pub-item">
+            <span class="pub-year">2024</span>
+            <div>
+              <h3>Signature post-quantique CFS sur codes de Goppa</h3>
+              <p>Étude des cryptosystèmes de McEliece et Niederreiter ; implémentation de la signature CFS en Python.</p>
+            </div>
+          </li>
+          <li class="pub-item">
+            <span class="pub-year">2024</span>
+            <div>
+              <h3>Implémentation et attaques sur les cryptosystèmes</h3>
+              <p>Chiffrement de Rabin (avec et sans bourrage) et signature ECDSA.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== DOCUMENTS ===================== -->
+    <section class="section section--alt" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Ressources</p>
+          <h2 class="section-title">Documents</h2>
+          <p class="section-lead">Consultez et téléchargez les documents mis à disposition : documents personnels, algorithmes et sujets de recherche.</p>
+        </div>
+
+        <div class="doc-filters" id="doc-filters" role="group" aria-label="Filtrer les documents par catégorie">
+          <button class="doc-filter" data-cat="all" aria-pressed="true">Tous</button>
+          <button class="doc-filter" data-cat="documents-personnels" aria-pressed="false">Documents personnels</button>
+          <button class="doc-filter" data-cat="algorithmes" aria-pressed="false">Algorithmes</button>
+          <button class="doc-filter" data-cat="sujets-de-recherche" aria-pressed="false">Sujets de recherche</button>
+        </div>
+
+        <div class="docs-grid" id="docs-grid" aria-live="polite">
+          <p class="doc-empty">Chargement des documents…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Échanges</p>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-lead">Pour toute collaboration scientifique, opportunité de recherche ou échange académique.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="k">Courriel</div>
+            <a class="v" href="mailto:tebi0301@icloud.com">tebi0301@icloud.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="k">Téléphone</div>
+            <a class="v" href="tel:+33758485222">07 58 48 52 22</a>
+          </div>
+          <div class="contact-card">
+            <div class="k">Localisation</div>
+            <div class="v">Paris, France</div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Laboratoire</div>
+            <div class="v">LAGA — AGC3, Saint-Denis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Navigation de pied de page">
+        <a href="#accueil">Accueil</a>
+        <a href="#recherche">Recherche</a>
+        <a href="#documents">Documents</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p>&copy; <span id="year"></span> Son Cliter Tebi Massala — Cryptologie et apprentissage profond.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
