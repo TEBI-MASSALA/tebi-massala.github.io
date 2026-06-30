@@ -31,7 +31,7 @@
   filter: blur(50px) saturate(1.25);
 }
 .hero::before { display: none; }            /* retire l'ancienne diagonale */
-.hero-canvas { z-index: 1; opacity: 0.5; }  /* motif crypto/IA plus discret par-dessus */
+.hero-canvas { z-index: 1; opacity: 0.9; }  /* motif bits + formules bien visible */
 .hero-veil {
   position: absolute;
   inset: 0;
