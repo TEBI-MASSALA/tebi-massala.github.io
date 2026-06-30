@@ -5,10 +5,10 @@
  *  - menu de navigation sur mobile ;
  *  - année courante dans le pied de page ;
  *  - portrait : repli si la photo est absente ;
- *  - chargement et filtrage des documents depuis le fichier documents.json.
+ *  - apparition des sections au défilement ;
+ *  - chargement et filtrage des documents depuis documents.json.
  *
- * Les données sont insérées via textContent / createElement (jamais innerHTML),
- * ce qui neutralise tout risque d'injection.
+ * Données insérées via textContent / createElement (aucune injection HTML).
  */
 
 (function () {
@@ -35,9 +35,23 @@
   // --- Portrait : repli si la photo est absente -------------------------
   const portrait = document.querySelector('.portrait img');
   if (portrait) {
-    portrait.addEventListener('error', () => {
-      portrait.style.display = 'none';
-    });
+    portrait.addEventListener('error', () => { portrait.style.display = 'none'; });
+  }
+
+  // --- Apparition des sections au défilement -----------------------------
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
   // --- Documents ---------------------------------------------------------
@@ -70,8 +84,7 @@
 
     const link = document.createElement('a');
     link.className = 'btn btn--ghost';
-    // Le chemin du fichier est relatif au site (ex. "documents/cv.pdf").
-    link.href = doc.file;
+    link.href = doc.file || '#';
     link.setAttribute('rel', 'noopener');
     link.setAttribute('download', '');
     link.textContent = 'Télécharger';
@@ -81,10 +94,9 @@
   }
 
   function render() {
-    const list =
-      currentCategory === 'all'
-        ? allDocuments
-        : allDocuments.filter((d) => d.category === currentCategory);
+    const list = currentCategory === 'all'
+      ? allDocuments
+      : allDocuments.filter((d) => d.category === currentCategory);
 
     grid.textContent = '';
     if (list.length === 0) {
