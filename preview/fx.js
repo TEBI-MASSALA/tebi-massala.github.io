@@ -46,6 +46,7 @@
 
   // Formules cryptographie + IA (filigrane).
   var FORMULAS = [
+    // — Cryptographie —
     'S(x) = Σ aᵤ xᵘ',
     'NL(f) = 2ⁿ⁻¹ − ½·max|W_f(a)|',
     'W_f(a) = Σ (−1)^(a·x ⊕ f(x))',
@@ -53,13 +54,21 @@
     'F : 𝔽₂ⁿ → 𝔽₂ⁿ',
     'APN ⇔ δ_F = 2',
     'E_k ∘ A = B ∘ E_k',
-    'x ↦ x^(2ᵏ+1)',
-    'σ(Wx + b)',
-    '∇_θ L(θ)',
-    'P(A → B) = Pr[E(A(x)) = B(E(x))]',
     'Tr(x) = x + x² + … + x^(2ⁿ⁻¹)',
     'H(X) = −Σ p·log₂ p',
-    'AES · Midori · S-box',
+    // — GANs —
+    'min_G max_D  𝔼[log D(x)] + 𝔼[log(1 − D(G(z)))]',
+    'G : z ↦ x,   z ∼ 𝒩(0, I)',
+    'D : x ↦ [0, 1]',
+    'L_GAN = 𝔼[log D(x)] + 𝔼[log(1 − D(G(z)))]',
+    // — Transformers —
+    'Attention(Q,K,V) = softmax(QKᵀ/√d_k)·V',
+    'softmax(z)ᵢ = e^{zᵢ} / Σⱼ e^{zⱼ}',
+    'h = LayerNorm(x + MultiHead(x))',
+    'PE(p,2i) = sin(p / 10000^{2i/d})',
+    // — Optimisation —
+    'σ(Wx + b)',
+    '∇_θ L(θ)',
   ];
 
   function rand(a, b) { return a + Math.random() * (b - a); }
@@ -84,12 +93,12 @@
     }
     // Formules dérivantes.
     forms = [];
-    var count = Math.max(4, Math.min(9, Math.floor(W / 220)));
+    var count = Math.max(5, Math.min(11, Math.floor(W / 180)));
     for (var k = 0; k < count; k++) {
       forms.push({
         text: FORMULAS[(Math.random() * FORMULAS.length) | 0],
         x: Math.random() * W, y: rand(40, H - 20),
-        vx: rand(-0.18, -0.05), size: rand(13, 19), alpha: rand(0.06, 0.14),
+        vx: rand(-0.22, -0.07), size: rand(15, 22), alpha: rand(0.20, 0.34),
       });
     }
   }
@@ -115,13 +124,13 @@
     for (var i = 0; i < forms.length; i++) {
       var f = forms[i];
       ctx.font = f.size + 'px ' + 'monospace';
-      ctx.fillStyle = 'rgba(200, 235, 255, ' + f.alpha + ')';
+      ctx.fillStyle = 'rgba(198, 244, 224, ' + f.alpha + ')';
       ctx.fillText(f.text, f.x, f.y);
       f.x += f.vx;
       if (f.x < -ctx.measureText(f.text).width - 20) {
         f.x = W + 20; f.y = rand(40, H - 20);
         f.text = FORMULAS[(Math.random() * FORMULAS.length) | 0];
-        f.alpha = rand(0.06, 0.14);
+        f.alpha = rand(0.20, 0.34);
       }
     }
   }
@@ -154,8 +163,8 @@
   function frameOnce() {
     ctx.clearRect(0, 0, W, H);
     drawNetwork();
-    drawFormulas();
     drawBits();
+    drawFormulas(); // dessinées en dernier = bien visibles au-dessus
   }
   function loop() { frameOnce(); raf = window.requestAnimationFrame(loop); }
   function start() { if (!running) { running = true; loop(); } }
