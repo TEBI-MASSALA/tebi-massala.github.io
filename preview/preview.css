@@ -37,9 +37,22 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(900px 440px at 50% 46%, rgba(6, 18, 30, 0.55), rgba(6, 18, 30, 0) 72%);
+  background: radial-gradient(820px 380px at 50% 46%, rgba(6, 18, 30, 0.4), rgba(6, 18, 30, 0) 74%);
 }
 .hero-inner { z-index: 3; }
+/* Ombre portée pour garder le texte parfaitement lisible sur le fond animé. */
+.hero-title, .hero-role, .hero-lead, .hero-eyebrow {
+  text-shadow: 0 2px 16px rgba(6, 18, 30, 0.65);
+}
+
+/* --- Compétences : sans icônes, cartes teintées (plus de blanc) ---------- */
+#competences .sk-ico { display: none; }
+#competences .skill-card {
+  background: linear-gradient(180deg, #eaf3ef 0%, #dfece7 100%);
+  border-color: #cadfd7;
+}
+#competences .skill-card h3 { border-bottom-color: #cadfd7; }
+#competences .tag-list li { background: #ffffff; border-color: #cadfd7; }
 
 /* --- Finitions « Stripe » : coins doux, titres en dégradé ---------------- */
 .skill-card, .doc-card, .contact-card, .tl-item, .pub-item,

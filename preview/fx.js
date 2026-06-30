@@ -80,10 +80,10 @@
     canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Colonnes de bits 0/1.
+    // Colonnes de bits 0/1 (discrètes, pour ne pas masquer les formules).
     cols = [];
-    for (var x = 10; x < W; x += 22) {
-      cols.push({ x: x, y: Math.random() * H, speed: rand(0.7, 1.8), gap: rand(14, 20) });
+    for (var x = 12; x < W; x += 30) {
+      cols.push({ x: x, y: Math.random() * H, speed: rand(0.7, 1.7), gap: rand(14, 20) });
     }
     // Nœuds (réseau de neurones discret).
     var n = Math.max(8, Math.min(18, Math.floor(W / 90)));
@@ -98,41 +98,44 @@
       forms.push({
         text: FORMULAS[(Math.random() * FORMULAS.length) | 0],
         x: Math.random() * W, y: rand(40, H - 20),
-        vx: rand(-0.22, -0.07), size: rand(15, 22), alpha: rand(0.20, 0.34),
+        vx: rand(-0.24, -0.08), size: rand(16, 26), alpha: rand(0.55, 0.85),
       });
     }
   }
 
   function drawBits() {
-    ctx.font = '14px ' + 'monospace';
+    ctx.font = '13px ' + 'monospace';
     ctx.textAlign = 'center';
     for (var i = 0; i < cols.length; i++) {
       var c = cols[i];
       var bit = Math.random() < 0.5 ? '0' : '1';
-      // tête plus lumineuse, traînée plus faible
-      ctx.fillStyle = 'rgba(150, 235, 190, 0.55)';
+      // tête discrète, traînée très faible (les formules priment)
+      ctx.fillStyle = 'rgba(150, 235, 190, 0.32)';
       ctx.fillText(bit, c.x, c.y);
-      ctx.fillStyle = 'rgba(120, 200, 255, 0.12)';
+      ctx.fillStyle = 'rgba(120, 200, 255, 0.07)';
       ctx.fillText(Math.random() < 0.5 ? '0' : '1', c.x, c.y - c.gap);
       c.y += c.speed;
-      if (c.y > H + 16) { c.y = -16; c.speed = rand(0.7, 1.8); }
+      if (c.y > H + 16) { c.y = -16; c.speed = rand(0.7, 1.7); }
     }
   }
 
   function drawFormulas() {
     ctx.textAlign = 'left';
+    ctx.shadowColor = 'rgba(40, 180, 130, 0.7)';
+    ctx.shadowBlur = 10;
     for (var i = 0; i < forms.length; i++) {
       var f = forms[i];
-      ctx.font = f.size + 'px ' + 'monospace';
-      ctx.fillStyle = 'rgba(198, 244, 224, ' + f.alpha + ')';
+      ctx.font = '600 ' + f.size + 'px ' + 'monospace';
+      ctx.fillStyle = 'rgba(206, 250, 228, ' + f.alpha + ')';
       ctx.fillText(f.text, f.x, f.y);
       f.x += f.vx;
       if (f.x < -ctx.measureText(f.text).width - 20) {
         f.x = W + 20; f.y = rand(40, H - 20);
         f.text = FORMULAS[(Math.random() * FORMULAS.length) | 0];
-        f.alpha = rand(0.20, 0.34);
+        f.alpha = rand(0.55, 0.85);
       }
     }
+    ctx.shadowBlur = 0; // on réinitialise le halo pour les autres dessins
   }
 
   function drawNetwork() {
