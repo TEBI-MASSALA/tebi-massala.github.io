@@ -1010,10 +1010,57 @@ a:focus-visible,
   50% { box-shadow: 0 0 16px 2px rgba(16, 182, 166, 0.35); }
 }
 
+/* --- Apparition en cascade des cartes (au défilement) -------------------- */
+.reveal.is-visible .skills-grid > *,
+.reveal.is-visible .timeline > *,
+.reveal.is-visible .docs-grid > *,
+.reveal.is-visible .pub-list > *,
+.reveal.is-visible .contact-grid > *,
+.reveal.is-visible .logos-row > * {
+  animation: cardRise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes cardRise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(1) { animation-delay: 0.04s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(2) { animation-delay: 0.1s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(3) { animation-delay: 0.16s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(4) { animation-delay: 0.22s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(5) { animation-delay: 0.28s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(6) { animation-delay: 0.34s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(7) { animation-delay: 0.4s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(8) { animation-delay: 0.46s; }
+.reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > *:nth-child(n+9) { animation-delay: 0.5s; }
+
+/* --- Barre de progression de lecture (haut de page) ---------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 200;
+  background: var(--grad-vivid);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: growProgress linear both;
+  animation-timeline: scroll(root);
+  pointer-events: none;
+}
+@keyframes growProgress { to { transform: scaleX(1); } }
+
+/* --- Survol de carte : légère élévation + zoom doux ---------------------- */
+.skill-card:hover, .doc-card:hover, .pub-item:hover, .contact-card:hover, .tl-item:hover {
+  transform: translateY(-6px) scale(1.012);
+}
+
 /* --- Réduction de mouvement ---------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .section::before, .section::after,
   .hero::before,
   .section-title, .hero-title, .nav-brand,
   .sk-ico { animation: none; }
+  .reveal.is-visible :is(.skills-grid, .timeline, .docs-grid, .pub-list, .contact-grid, .logos-row) > * { animation: none; }
+  .scroll-progress { display: none; }
 }
