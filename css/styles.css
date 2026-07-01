@@ -773,3 +773,47 @@ a:focus-visible,
   margin-bottom: var(--space-2);
 }
 .contact-card .ico svg { width: 28px; height: 28px; }
+
+/* =============================================================================
+   Décorations & animations douces sur tout le site (CSS pur, léger).
+   Respecte prefers-reduced-motion.
+   ========================================================================== */
+
+/* Bandes alternées : léger halo décoratif aux couleurs de la marque. */
+.section--alt {
+  background:
+    radial-gradient(720px 340px at 100% -12%, rgba(46, 139, 87, 0.07), transparent 60%),
+    radial-gradient(640px 320px at 0% 112%, rgba(29, 78, 112, 0.07), transparent 60%),
+    var(--surface-alt);
+}
+
+/* Logos qui flottent en douceur. */
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.logo-tile img { animation: floatY 6s ease-in-out infinite; }
+.logo-tile:nth-child(2) img { animation-delay: -1.2s; }
+.logo-tile:nth-child(3) img { animation-delay: -2.4s; }
+.logo-tile:nth-child(4) img { animation-delay: -3.6s; }
+.logo-tile:nth-child(5) img { animation-delay: -4.8s; }
+
+/* Filet sous les titres : léger scintillement une fois révélé. */
+.reveal.is-visible .section-title::after { animation: lineShimmer 3.2s ease-in-out infinite; }
+@keyframes lineShimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+/* Reflet lumineux qui balaie les boutons d'action au survol. */
+.btn--accent, .btn--primary { position: relative; overflow: hidden; }
+.btn--accent::after, .btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 32%, rgba(255, 255, 255, 0.28) 50%, transparent 68%);
+  transform: translateX(-130%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.btn--accent:hover::after, .btn--primary:hover::after { transform: translateX(130%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-tile img,
+  .reveal.is-visible .section-title::after { animation: none; }
+  .btn--accent::after, .btn--primary::after { display: none; }
+}
