@@ -993,8 +993,27 @@ a:focus-visible,
 .site-footer { border-top: 4px solid transparent; border-image: var(--grad-vivid) 1; }
 .site-footer a { color: var(--accent-light); }
 
+/* --- Dégradés vivants qui se déplacent dans les titres ------------------- */
+.section-title, .hero-title, .nav-brand {
+  background-size: 220% auto;
+  animation: hueShift 9s ease infinite;
+}
+@keyframes hueShift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Pastilles d'icônes : léger halo qui respire. */
+.sk-ico { animation: icoPulse 3.4s ease-in-out infinite; }
+@keyframes icoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 182, 166, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(16, 182, 166, 0.35); }
+}
+
 /* --- Réduction de mouvement ---------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .section::before, .section::after,
-  .hero::before { animation: none; }
+  .hero::before,
+  .section-title, .hero-title, .nav-brand,
+  .sk-ico { animation: none; }
 }
