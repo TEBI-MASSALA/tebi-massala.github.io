@@ -445,8 +445,9 @@ img { max-width: 100%; display: block; }
 /* --- Compétences --------------------------------------------------------- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: var(--space-3);
+  align-items: start;
 }
 .skill-card {
   background: var(--surface);
@@ -480,15 +481,16 @@ img { max-width: 100%; display: block; }
 }
 .sk-ico svg { width: 20px; height: 20px; }
 .skill-card:hover .sk-ico { background: var(--accent); color: #fff; border-color: var(--accent); transition: background 0.2s ease, color 0.2s ease; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
 .tag-list li {
   font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  background: var(--surface-alt);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.25rem 0.7rem;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  color: var(--ink);
+  background: rgba(29, 78, 112, 0.06);
+  border: 1px solid rgba(29, 78, 112, 0.16);
+  border-radius: 7px;
+  padding: 0.24rem 0.6rem;
 }
 
 /* --- Recherche & thèse --------------------------------------------------- */
