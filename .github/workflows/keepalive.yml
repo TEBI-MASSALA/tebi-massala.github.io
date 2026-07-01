@@ -1,0 +1,20 @@
+# Maintient éveillé le site Render (offre gratuite qui s'endort après 15 min).
+# S'exécute toutes les ~10 minutes et effectue une simple requête HTTP.
+name: Keep Render awake
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # toutes les 10 minutes (heure UTC)
+  workflow_dispatch:          # permet aussi un lancement manuel
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping du site Render
+        run: |
+          code=$(curl -s -m 40 -o /dev/null -w "%{http_code}" https://portfolio-tebi.onrender.com/ || echo "erreur")
+          echo "Réveil de Render — code HTTP : $code"
