@@ -787,6 +787,28 @@ a:focus-visible,
     var(--surface-alt);
 }
 
+/* Section Recherche : bandeau vitrine sombre (visuel Canva) en tête de section. */
+#recherche { padding-top: 0; }
+.research-banner {
+  position: relative;
+  margin-bottom: var(--space-6);
+  padding-block: clamp(3rem, 7vw, 5rem);
+  background:
+    linear-gradient(90deg, rgba(4, 12, 20, 0.95) 0%, rgba(4, 12, 20, 0.82) 40%, rgba(4, 12, 20, 0.42) 72%, rgba(4, 12, 20, 0.2) 100%),
+    url('/img/recherche-bg.jpg') right center / cover no-repeat;
+  background-color: #06131e;
+  border-bottom: 1px solid var(--line);
+}
+.section-head--ondark {
+  text-align: left;
+  max-width: 640px;
+  margin: 0;
+}
+.section-head--ondark .section-eyebrow { color: var(--accent-light); }
+.section-head--ondark .section-title { color: #eef3f6; }
+.section-head--ondark .section-lead { color: rgba(238, 243, 246, 0.82); }
+.section-head--ondark .section-title::after { margin-inline: 0; }
+
 /* Logos qui flottent en douceur. */
 @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 .logo-tile img { animation: floatY 6s ease-in-out infinite; }
