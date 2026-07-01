@@ -204,46 +204,22 @@ img { max-width: 100%; display: block; }
 .hero {
   position: relative;
   color: var(--on-dark);
+  /* Image d'arrière-plan (crypto + IA, dessinée sur Canva) + voile sombre
+     pour garder le texte parfaitement lisible. */
   background:
-    linear-gradient(120deg, #1a4a69 0%, #235880 55%, #2c6189 100%);
-  background-color: var(--ink);
+    linear-gradient(180deg, rgba(6, 16, 24, 0.42) 0%, rgba(6, 16, 24, 0.62) 100%),
+    url('/img/hero-bg.jpg') center / cover no-repeat;
+  background-color: #08141e;
   overflow: hidden;
 }
-/* Diagonale verte façon diapositive de titre de la thèse. */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -10%;
-  right: -12%;
-  width: 55%;
-  height: 130%;
-  background: linear-gradient(120deg, rgba(46, 139, 87, 0.0) 0%, rgba(46, 139, 87, 0.55) 45%, rgba(33, 110, 64, 0.8) 100%);
-  transform: skewX(-12deg);
-  transform-origin: top right;
-  pointer-events: none;
-  z-index: 0;
-  animation: heroSheen 14s ease-in-out infinite alternate;
-}
-@keyframes heroSheen {
-  from { opacity: 0.75; transform: skewX(-12deg) translateX(0); }
-  to   { opacity: 1;    transform: skewX(-12deg) translateX(-3%); }
-}
+/* L'ancienne diagonale est remplacée par l'image de fond. */
+.hero::before { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .hero::before { animation: none; }
 }
 /* Motif de lignes croisées discret, évoquant une grille cryptographique. */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(234, 240, 247, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234, 240, 247, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(1000px 500px at 70% 20%, #000, transparent 75%);
-  pointer-events: none;
-  z-index: 1;
-}
+/* La grille est déjà présente dans l'image de fond : on la retire ici. */
+.hero::after { display: none; }
 .hero-title {
   color: #fff;
   font-size: clamp(2.4rem, 5.4vw, 4rem);
@@ -251,8 +227,8 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.01em;
   margin-bottom: var(--space-2);
 }
-/* Canvas d'animation et contenu centré au-dessus. */
-.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+/* Canvas d'animation (réseau de neurones subtil) par-dessus l'image de fond. */
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.5; }
 .hero-inner {
   position: relative;
   z-index: 2;
